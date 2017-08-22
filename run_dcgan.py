@@ -12,7 +12,7 @@ ng_layers = 4
 gf_dim = 64
 df_dim = 64
 save_every_step = 'False'
-data_format = 'NCHW'
+data_format = 'NHWC'
 transpose_matmul_b = False
 verbose = 'False'
 
