@@ -38,13 +38,15 @@ def main(_):
         config.data_format = df
         avg_time = train.train_dcgan(get_data(), config)
         print("\ndata_format = %s. batch_size = %i"%(config.data_format, config.batch_size))
-        print("Average time per batch = %3.3f +- %3.5f (s)\n"%(avg_time[0], avg_time[1]))
+        print("Average time per batch = %3.3f +- %3.5f (s)"%(avg_time[0], avg_time[1]))
+        print("\nImages/sec = %i\n"%(config.batch_size/avg_time[0]))
 
     for bs in batch_size:
         config.batch_size = bs
         avg_time = train.train_dcgan(get_data(), config)
         print("\ndata_format = %s. batch_size = %i"%(config.data_format, config.batch_size))
-        print("Average time per batch = %3.3f +- %3.5f (s)\n"%(avg_time[0], avg_time[1]))
+        print("Average time per batch = %3.3f +- %3.5f (s)"%(avg_time[0], avg_time[1]))
+        print("\nImages/sec = %i\n"%(config.batch_size/avg_time[0]))
 
 def get_data():
     data = np.load(config.datafile, mmap_mode='r')
