@@ -15,7 +15,7 @@ save_every_step = 'False'
 data_format = 'NHWC'
 transpose_matmul_b = False
 verbose = 'False'
-arch = 'default'
+arch = 'default' #default, KNL or HSW
 
 experiment = 'cosmo_primary_256_200k_batchSize%i_flipLabel%0.3f_'\
              'nd%i_ng%i_gfdim%i_dfdim%i_zdim%i'%(batch_size, flip_labels, nd_layers,\
