@@ -12,6 +12,8 @@ def train_dcgan(data, config):
 
     with training_graph.as_default():
 
+        tf.set_random_seed(1)
+
         gan = dcgan.dcgan(output_size=config.output_size,
                           batch_size=config.batch_size,
                           nd_layers=config.nd_layers,
