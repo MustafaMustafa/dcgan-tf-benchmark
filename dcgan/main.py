@@ -4,6 +4,7 @@ import numpy as np
 import pprint
 
 flags = tf.app.flags
+flags.DEFINE_string("dataset", "cosmo", "")
 flags.DEFINE_string("datafile", "data/cosmo_primary_64_1k_train.npy", "Input data file for cosmo")
 flags.DEFINE_integer("epoch", 1, "Epochs to train [1]")
 flags.DEFINE_float("learning_rate", 0.0002, "Learning rate of for adam [0.0002]")
