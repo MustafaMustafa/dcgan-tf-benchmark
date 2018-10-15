@@ -32,7 +32,7 @@ def main(_):
     pprint.PrettyPrinter().pprint(config.__flags)
     avg_time = train.train_dcgan(get_data(), config)
     print("\nBatch size = %i. Average time per batch = %3.3f +- %3.5f (s)"%(config.batch_size, avg_time[0], avg_time[1]))
-    print("\nImages/sec = %i"%(config.batch_size/avg_time[0]))
+    print("\nimages/sec = %i"%(config.batch_size/avg_time[0]))
 
 def get_data():
     data = np.load(config.datafile, mmap_mode='r')

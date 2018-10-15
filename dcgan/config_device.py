@@ -13,10 +13,10 @@ def config_device(arch):
     os.environ["KMP_AFFINITY"]= "granularity=fine,verbose,compact,1,0"
 
     #arch-specific stuff
-    if arch=='HSW':
+    if arch=='HSW' or arch=='hsw':
         num_inter_threads = 2
         num_intra_threads = 16
-    elif arch=='KNL':
+    elif arch=='KNL' or arch=='knl':
         num_inter_threads = 2
         num_intra_threads = 66
     else:
