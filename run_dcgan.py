@@ -1,11 +1,11 @@
 import os
 import subprocess
 
-datafile = 'data/benchmark_GAN_generated_cosmo_maps_64.npy'
-output_size = 64
+datafile = 'data/benchmark_GAN_generated_cosmo_maps_128.npy'
+output_size = 128
 epoch = 1
 flip_labels = 0.01
-batch_size = 64
+batch_size = 128
 z_dim = 64
 nd_layers = 4
 ng_layers = 4
@@ -15,7 +15,7 @@ save_every_step = 'False'
 data_format = 'NHWC'
 transpose_matmul_b = False
 verbose = 'False'
-arch = 'default' #default, KNL or HSW
+arch = 'KNL' #default, KNL or HSW
 
 experiment = 'cosmo_primary_256_200k_batchSize%i_flipLabel%0.3f_'\
              'nd%i_ng%i_gfdim%i_dfdim%i_zdim%i'%(batch_size, flip_labels, nd_layers,\
@@ -33,7 +33,9 @@ command = 'python dcgan/main.py --dataset cosmo --datafile %s '\
 # if not os.path.isdir('output'):
     # os.mkdir('output')
 
-print command.split()
+if os.path.exists('logs'):
+    subprocess.call('rm -rf ./logs'.split())
+print(command.split())
 # f_out = open('output/'+experiment+'.log', 'w')
 # subprocess.call(command.split(), stdout=f_out)
 subprocess.call(command.split())
